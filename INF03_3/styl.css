@@ -1,0 +1,51 @@
+* {
+    font-family: Century;
+    text-align: center;
+}
+
+body {
+    margin: none;
+}
+
+header, footer {
+    background-color: indigo;
+    color: white;
+    font-style: italic;
+    padding: 2px;
+}
+
+section {
+    width: 50%;
+    height: 470px;
+}
+
+img {
+    padding: 3px;
+    margin: 10px;
+    border: 2px dashed slateblue;
+}
+
+a {
+    color: white;
+}
+
+input[type="button"] {
+    background-color: slateblue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+input[type="button"]:hover {
+    background-color: indigo;
+}
+
+input[type="range"] {
+    width: 80%;
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}

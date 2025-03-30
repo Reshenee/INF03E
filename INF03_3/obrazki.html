@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efekty obrazu</title>
+    <link rel="stylesheet" href="styl.css">
+</head>
+<body>
+    <header>
+        <h2>Efekty na obrazach</h2>
+    </header>
+    <main>
+
+        <section>
+            <img src="pszczola.jpg" alt="pszczoła na fioletowym kwiatku" id="pszczola">
+            <form action="">
+                <input type="radio" name="efekt" id="opcja1" value="blur(6px)"><label for="opcja1">Blur</label>
+                <br>
+                <input type="radio" name="efekt" id="opcja2" value="sepia(100%)"><label for="opcja2">Sepia</label>
+                <br>
+                <input type="radio" name="efekt" id="opcja3" value="invert(100%)"><label for="opcja3">Negatyw</label>
+                <br>
+                <input type="button" value="Zastosuj" onclick="nalozFiltr()">
+            </form>
+        </section>
+        <section>
+            <img src="pomarancza.jpg" alt="drzewo pomarańczy" id="pomarancza">
+            <br>
+            <input type="button" value="Kolorowy" onclick="kolorowy()">
+            <input type="button" value="Czarno-biały" onclick="czarnoBialy()">
+        </section>
+        <section>
+            <img src="owoce.jpg" alt="Kosz pełen owoców" id="owoce">
+            <input type="range" id="suwakPrzezroczystosc" min="0" max="100" value="100">
+            <br>
+            <input type="button" value="Zastosuj" onclick="zmienPrzezroczystosc()">
+        </section>
+        <section>
+            <img src="zolw.jpg" alt="Żółw w wodzie" id="zolw">
+            <input type="range" id="suwakJasnosc" min="0" max="250">
+            <br>
+            <input type="button" value="Zastosuj" onclick="zmienJasnosc()">
+        </section>
+    </main>
+    <footer>
+        <p>
+            <a href="http://www.css.com/" target="_blank">
+                Zobacz inne efekty obrazu
+            </a>
+        </p>
+        <p>Stronę wykonał:Raman Dzianisau</p>
+    </footer>
+</body>
+<script>
+    function nalozFiltr() {
+        const zdjecie = document.getElementById("pszczola");
+        const efekty = document.querySelectorAll("input[type='radio']");
+
+        efekty.forEach(efekt => {
+            if (efekt.checked) {
+                zdjecie.style.filter = efekt.value;
+            }
+        }
+            
+        );
+    }
+
+    function kolorowy() {
+        const zdjecie = document.getElementById("pomarancza");
+        zdjecie.style.filter = "none";
+    }
+
+    function czarnoBialy() {
+        const zdjecie = document.getElementById("pomarancza");
+        zdjecie.style.filter = "grayscale(100%)";
+    }
+
+    function zmienPrzezroczystosc() {
+        const zdjecie = document.getElementById("owoce");
+        const wartoscSuwaka = document.getElementById("suwakPrzezroczystosc").value;
+
+        zdjecie.style.filter = "opacity(" + wartoscSuwaka + "%)";
+    }
+
+    function zmienJasnosc() {
+        const zdjecie = document.getElementById("zolw");
+        const wartoscSuwaka = document.getElementById("suwakJasnosc").value;
+
+        zdjecie.style.filter = "brightness(" + wartoscSuwaka + "%)";
+    }
+    </script>
+</html>
